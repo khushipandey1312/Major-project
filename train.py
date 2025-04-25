@@ -1,5 +1,3 @@
-
-
 import os
 import librosa
 import numpy as np
@@ -91,19 +89,19 @@ random_search = RandomizedSearchCV(
     random_state=42
 )
 
-# 🏋️ Train the optimized model
+#  Train the optimized model
 random_search.fit(X_train, y_train)
 
 # Best model from tuning
 best_model = random_search.best_estimator_
 
-# 🧪 Evaluate performance
+#  Evaluate performance
 y_pred = best_model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"✅ Optimized Model Accuracy: {accuracy:.2f}")
 
-# 💾 Save the trained model
+# Save the trained model
 with open("heartbeat_xgboost_optimized.pkl", "wb") as f:
     pickle.dump((best_model, label_encoder, scaler), f)
 
-print("🎉 Optimized model saved as heartbeat_xgboost_optimized.pkl")
+print("Optimized model saved as heartbeat_xgboost_optimized.pkl")

@@ -21,6 +21,9 @@
     <script src="{{ url_for('static', filename='//d3js.org/d3.v3.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/back-to-top') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/recorderjs@0.0.1/recorder.js"></script>
+
+
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default probootstrap-navbar">
@@ -213,6 +216,8 @@
         
     </div>
 </section>
+
+
 <!-- END section -->
 
 <section class="probootstrap-section" data-section="analysis" id="analysis" style="padding: 50px 0; background-color: #E5F1FB;">
@@ -386,7 +391,10 @@
         });
     });
     </script> -->
+    <script src="https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs/recorder.js"></script>
 
+
+    <!-- Gradio Mount Script -->
     <script>
         let mediaRecorder;
         let audioChunks = [];
@@ -494,6 +502,8 @@
             });
         });
     </script>
+  
+    
     
     
     
