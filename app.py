@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import tempfile
 
 # Load the trained model, label encoder, and scaler
-with open(r"new_mvp_sahil_mohurale\heartbeat_xgboost_optimized.pkl", "rb") as f:
+with open(r"new_mvp_sahil_mohurale/heartbeat_xgboost_optimized.pkl", "rb") as f:
     model, label_encoder, scaler = pickle.load(f)
 
 # Extract features from audio file
