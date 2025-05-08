@@ -4,7 +4,7 @@ import numpy as np
 import xgboost as xgb
 import pickle
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder, Stan7698dardScaler
 from sklearn.metrics import accuracy_score
 
 # 📂 Directory containing audio files
