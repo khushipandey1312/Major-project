@@ -157,7 +157,7 @@ if __name__ == "__main__":
         article=info_block,
         css=css,
         theme="huggingface"
-    ).launch(server_name="0.0.0.0", server_port=port)
+    ).launch()
 
 
 
