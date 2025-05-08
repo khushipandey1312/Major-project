@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 import tempfile
+import os
 
 # Load the trained model, label encoder, and scaler
 with open("heartbeat_xgboost_optimized.pkl", "rb") as f:
@@ -141,20 +142,22 @@ body::before {
 """
 
 # Gradio Interface
-gr.Interface(
-    fn=predict,
-    inputs=gr.Audio(label="🎧 Upload Heartbeat Audio", type="filepath"),
-    outputs=[gr.Textbox(label="🩺 Predicted Heart Condition"), gr.Image(label="📊 Waveform")],
-    title="<h1 style='color:#00B3B3;'>❤ Heartbeat Condition Detection</h1>",
-    description="""<div style="position: relative; z-index: 1; font-size: 16px; color: #333;">
-        <b>Predict Your Heart Health</b><br><br>
-        Prevention is better than cure. Use our advanced AI to analyze your heart sounds and assess your cardiac health.<br><br>
-        👉 <b>Click Submit after uploading a .wav file.</b><br><br>
-    </div>""",
-    article=info_block,
-    css=css,
-    theme="huggingface"
-).launch()
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 7860))  # Render provides PORT env var
+    gr.Interface(
+        fn=predict,
+        inputs=gr.Audio(label="🎧 Upload Heartbeat Audio", type="filepath"),
+        outputs=[gr.Textbox(label="🩺 Predicted Heart Condition"), gr.Image(label="📊 Waveform")],
+        title="<h1 style='color:#00B3B3;'>❤ Heartbeat Condition Detection</h1>",
+        description="""<div style="position: relative; z-index: 1; font-size: 16px; color: #333;">
+            <b>Predict Your Heart Health</b><br><br>
+            Prevention is better than cure. Use our advanced AI to analyze your heart sounds and assess your cardiac health.<br><br>
+            👉 <b>Click Submit after uploading a .wav file.</b><br><br>
+        </div>""",
+        article=info_block,
+        css=css,
+        theme="huggingface"
+    ).launch(server_name="0.0.0.0", server_port=port)
 
 
 
